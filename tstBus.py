@@ -9,10 +9,8 @@ I2C_SLAVE_ADRESS = 11   #adresse de l'arduino esclave, en rajouer autant qu'il y
 print("begin")
 
 def ConvertStringToByte(src):
-    """converted = []
-    for b in src:
-        converted.append(ord(b))
-    return converted"""
+    converted = 
+    return converted
     
 
 
@@ -46,7 +44,7 @@ if __name__ == '__main__':
     try:
         main()
         
-    except KeyboardInterupt:
+    except KeyboardInterrupt:
         print ("ERROR")
         
     input()
