@@ -1,0 +1,9 @@
+[unit]
+Description=BOB
+
+[Service]
+Type=simple
+ExecStart=/home/pi/Desktop/autoOn/bouton.py
+
+[Install]
+WantedBy=muti-user.target
