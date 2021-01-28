@@ -8,8 +8,7 @@ import smbus2 as smbus#,smbus2
 import time
 # Slave Addresses
 I2C_SLAVE_ADDRESS = 11 #0x0b ou 11
-I2C_SLAVE2_ADDRESS = 12
-I2C_SLAVE3_ADDRESS = 13
+
 # This function converts a string to an array of bytes.
 def ConvertStringsToBytes(src):
   converted = []
@@ -20,6 +19,7 @@ def main(args):
     # Create the I2C bus
     I2Cbus = smbus.SMBus(1)
     with smbus.SMBus(1) as I2Cbus:
+        """
         slaveSelect = input("Which Arduino (1-3): ")
         cmd = input("Enter command: ")
         if slaveSelect == "1":
@@ -34,7 +34,9 @@ def main(args):
             print(type(slaveSelect))
             print("no slave selected")
             quit()
-        BytesToSend = ConvertStringsToBytes(cmd)
+        """
+        slaveAddress = I2C_SLAVE_ADDRESS
+        #BytesToSend = ConvertStringsToBytes(cmd) J'abandonne la convertion, elle ne fonctionne pas, on va directement envoyer les informations
         print("Sent " + str(slaveAddress) + " the " + str(cmd) + " command.")
         print(BytesToSend )
         I2Cbus.write_i2c_block_data(slaveAddress, 0x00, BytesToSend)
